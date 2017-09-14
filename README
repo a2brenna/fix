@@ -1,0 +1,2 @@
+A fixed point math library.  Should eventually provide some fine control over
+rounding/truncation when performing the usual mathematical operations.
