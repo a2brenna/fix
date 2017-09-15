@@ -8,7 +8,23 @@
 
 const size_t PRECISION = 8;
 
+int64_t pow(const int64_t &base, const int64_t &exp){
+    assert(base >= 1);
+    assert(exp >= 1);
+
+    int64_t r = 1;
+    for(int64_t e = 1; e <= exp; e++){
+        r *= base;
+    }
+
+    return r;
+}
+
 namespace fix {
+
+    Fixed::Fixed(const int &i){
+        _internal = i * pow(10, PRECISION);
+    }
 
     Fixed::Fixed(const std::string &str){
         std::vector<std::string> tokens;

@@ -7,6 +7,8 @@ int main(){
 
     std::cout << std::numeric_limits<int64_t>::max() << std::endl;
 
+    std::cout << "10 ** 8 = " << pow(10, 8) << std::endl;
+
     {
         const std::string t = "0.0001";
         fix::Fixed f(t);
@@ -35,6 +37,10 @@ int main(){
     {
         const std::string t = "0.0001";
         fix::Fixed f(t);
+        std::cout << f.str() << std::endl;
+    }
+    {
+        fix::Fixed f(1);
         std::cout << f.str() << std::endl;
     }
 
