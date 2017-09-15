@@ -1,3 +1,6 @@
+#ifndef __FIX_H__
+#define __FIX_H__
+
 #include <string>
 #include <ostream>
 
@@ -29,3 +32,5 @@ bool operator==(const fix::Fixed &lhs, const fix::Fixed &rhs);
 std::ostream& operator<<(std::ostream& os, const fix::Fixed& f);
 
 int64_t pow(const int64_t &base, const int64_t &exp);
+
+#endif
