@@ -1,21 +1,28 @@
 #include <string>
+#include <ostream>
 
-class FIX_E_INPUT {};
+namespace fix {
 
-class Fixed {
+    class FIX_E_INPUT {};
 
-    public:
-        Fixed(const std::string &str);
-        std::string str() const;
-        int64_t internal() const;
+    class Fixed {
 
-    private:
-        int64_t _internal;
+        public:
+            Fixed(const std::string &str);
+            std::string str() const;
+            int64_t internal() const;
+
+        private:
+            int64_t _internal;
+
+    };
 
 };
 
-bool operator<(const Fixed &lhs, const Fixed &rhs);
-bool operator>(const Fixed &lhs, const Fixed &rhs);
-bool operator<=(const Fixed &lhs, const Fixed &rhs);
-bool operator>=(const Fixed &lhs, const Fixed &rhs);
-bool operator==(const Fixed &lhs, const Fixed &rhs);
+bool operator<(const fix::Fixed &lhs, const fix::Fixed &rhs);
+bool operator>(const fix::Fixed &lhs, const fix::Fixed &rhs);
+bool operator<=(const fix::Fixed &lhs, const fix::Fixed &rhs);
+bool operator>=(const fix::Fixed &lhs, const fix::Fixed &rhs);
+bool operator==(const fix::Fixed &lhs, const fix::Fixed &rhs);
+
+std::ostream& operator<<(std::ostream& os, const fix::Fixed& f);
