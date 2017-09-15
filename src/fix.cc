@@ -80,6 +80,10 @@ namespace fix {
             s.pop_back();
         }
 
+        if(s.back() == '.'){
+            s.push_back('0');
+        }
+
         return s;
     }
 
