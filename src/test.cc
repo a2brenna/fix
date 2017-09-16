@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <map>
 
 #include "fix.h"
 
@@ -44,6 +45,12 @@ int main(){
         std::cout << f.str() << std::endl;
     }
 
+    std::cout << (fix::Fixed(1) > fix::Fixed(0)) << std::endl;
+    std::cout << (fix::Fixed(1) < fix::Fixed(0)) << std::endl;
+    std::cout << (fix::Fixed(1) == fix::Fixed(1)) << std::endl;
+
+    std::map<fix::Fixed, fix::Fixed> m;
+    m[fix::Fixed(1)] = fix::Fixed(0);
 
     return 0;
 }

@@ -26,6 +26,10 @@ namespace fix {
         _internal = i * pow(10, PRECISION);
     }
 
+    Fixed::Fixed(){
+        _internal = 0;
+    }
+
     Fixed::Fixed(const std::string &str){
         std::vector<std::string> tokens;
         split(tokens, str, boost::is_any_of("."));
@@ -91,26 +95,26 @@ namespace fix {
         return _internal;
     }
 
-}
+    bool Fixed::operator<(const Fixed &other) const{
+        return _internal < other.internal();
+    }
 
-bool operator<(const fix::Fixed &lhs, const fix::Fixed &rhs){
-    return lhs.internal() < rhs.internal();
-}
+    bool Fixed::operator>(const Fixed &other) const{
+        return _internal > other.internal();
+    }
 
-bool operator>(const fix::Fixed &lhs, const fix::Fixed &rhs){
-    return lhs.internal() > rhs.internal();
-}
+    bool Fixed::operator<=(const Fixed &other) const{
+        return _internal <= other.internal();
+    }
 
-bool operator<=(const fix::Fixed &lhs, const fix::Fixed &rhs){
-    return lhs.internal() <= rhs.internal();
-}
+    bool Fixed::operator>=(const Fixed &other) const{
+        return _internal >= other.internal();
+    }
 
-bool operator>=(const fix::Fixed &lhs, const fix::Fixed &rhs){
-    return lhs.internal() >= rhs.internal();
-}
+    bool Fixed::operator==(const Fixed &other) const{
+        return _internal == other.internal();
+    }
 
-bool operator==(const fix::Fixed &lhs, const fix::Fixed &rhs){
-    return lhs.internal() == rhs.internal();
 }
 
 std::ostream& operator<<(std::ostream& os, const fix::Fixed& f){
